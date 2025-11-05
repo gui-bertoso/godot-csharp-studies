@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kkhskxolqm2o"]
+
+[ext_resource type="Script" uid="uid://bguebeg1kanmb" path="res://Enemys/TemplateEnemy/TemplateEnemy.cs" id="1_enatw"]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_enatw")

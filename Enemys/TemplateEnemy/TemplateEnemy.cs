@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Enemy : CharacterBody2D
+public partial class Enemy : Entity
 {
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
@@ -10,7 +10,6 @@ public partial class Enemy : CharacterBody2D
 	{
 		Vector2 velocity = Velocity;
 
-		// Add the gravity.
 		if (!IsOnFloor())
 		{
 			velocity += GetGravity() * (float)delta;

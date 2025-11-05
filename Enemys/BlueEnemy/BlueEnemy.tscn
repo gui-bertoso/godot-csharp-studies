@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://jsr2gls4hwwl"]
 
-[ext_resource type="PackedScene" uid="uid://kkhskxolqm2o" path="res://enemy.tscn" id="1_v1mpc"]
-[ext_resource type="Script" uid="uid://blg2uwy5ipl80" path="res://BlueEnemy.cs" id="2_xr2dr"]
+[ext_resource type="PackedScene" uid="uid://kkhskxolqm2o" path="res://Enemys/TemplateEnemy/TemplateEnemy.tscn" id="1_v1mpc"]
+[ext_resource type="Script" uid="uid://blg2uwy5ipl80" path="res://Enemys/BlueEnemy/BlueEnemy.cs" id="2_xr2dr"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_72t8a"]
 
@@ -15,19 +15,17 @@ size = Vector2(1.0000002, 0.99999714)
 
 [node name="Enemy" instance=ExtResource("1_v1mpc")]
 script = ExtResource("2_xr2dr")
+Health = 100
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." index="0"]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(82, 293)
 scale = Vector2(45.000004, 32.50002)
 mesh = SubResource("QuadMesh_72t8a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-position = Vector2(82, 293)
 shape = SubResource("RectangleShape2D_y3xnp")
 
 [node name="Attacks" type="Node2D" parent="." index="2"]
-position = Vector2(82, 310)
 
 [node name="RightAttack" type="MeshInstance2D" parent="Attacks" index="0"]
 visible = false
@@ -45,7 +43,7 @@ shape = SubResource("RectangleShape2D_rdiv8")
 [node name="LeftAttack" type="MeshInstance2D" parent="Attacks" index="1"]
 visible = false
 modulate = Color(1, 1, 0, 1)
-position = Vector2(-35, -17.99999)
+position = Vector2(-35, 0)
 scale = Vector2(23.000006, 21.999994)
 mesh = SubResource("QuadMesh_tfpxg")
 
