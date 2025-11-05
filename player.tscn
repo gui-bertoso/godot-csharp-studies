@@ -1,0 +1,320 @@
+[gd_scene load_steps=13 format=3 uid="uid://bugutfk4d06ni"]
+
+[ext_resource type="Script" uid="uid://bsqa2qfge2711" path="res://CharacterBody2d.cs" id="1_4flbx"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(23, 40)
+
+[sub_resource type="QuadMesh" id="QuadMesh_hqtel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sweqy"]
+size = Vector2(1.0000001, 1.0196071)
+
+[sub_resource type="QuadMesh" id="QuadMesh_2hs0m"]
+
+[sub_resource type="Animation" id="Animation_4flbx"]
+resource_name = "AttackLeft"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attacks/LeftAttack:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Attacks/LeftAttack/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_onrkg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attacks/LeftAttack:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Attacks/LeftAttack/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Attacks/RightAttack:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Attacks/RightAttack/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Attacks/UpAttack:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Attacks/UpAttack/Area2D/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Attacks/BottomAttack:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Attacks/BottomAttack/Area2D/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_i3pqv"]
+resource_name = "AttackRight"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attacks/RightAttack:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Attacks/RightAttack/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_hqtel"]
+resource_name = "AttackUp"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attacks/UpAttack:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Attacks/UpAttack/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_sweqy"]
+resource_name = "AttackBottom"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attacks/BottomAttack:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Attacks/BottomAttack/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_onrkg"]
+_data = {
+&"AttackBottom": SubResource("Animation_sweqy"),
+&"AttackLeft": SubResource("Animation_4flbx"),
+&"AttackRight": SubResource("Animation_i3pqv"),
+&"AttackUp": SubResource("Animation_hqtel"),
+&"RESET": SubResource("Animation_onrkg")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(440, 364)
+script = ExtResource("1_4flbx")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-1.9073486e-06, -20.999998)
+scale = Vector2(22.750004, 40.499996)
+mesh = SubResource("QuadMesh_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -21)
+shape = SubResource("RectangleShape2D_i3pqv")
+
+[node name="Attacks" type="Node2D" parent="."]
+
+[node name="RightAttack" type="MeshInstance2D" parent="Attacks"]
+visible = false
+modulate = Color(0, 1, 0.019607844, 1)
+position = Vector2(29.999996, -22.999989)
+scale = Vector2(35.99998, 25.500021)
+mesh = SubResource("QuadMesh_hqtel")
+
+[node name="Area2D" type="Area2D" parent="Attacks/RightAttack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/RightAttack/Area2D"]
+scale = Vector2(1.0000002, 1.0000006)
+shape = SubResource("RectangleShape2D_sweqy")
+disabled = true
+
+[node name="LeftAttack" type="MeshInstance2D" parent="Attacks"]
+visible = false
+modulate = Color(0, 1, 0.019607844, 1)
+position = Vector2(-30.000008, -22.999989)
+scale = Vector2(35.99998, 25.500021)
+mesh = SubResource("QuadMesh_hqtel")
+
+[node name="Area2D" type="Area2D" parent="Attacks/LeftAttack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/LeftAttack/Area2D"]
+scale = Vector2(1.0000002, 1.0000006)
+shape = SubResource("RectangleShape2D_sweqy")
+disabled = true
+
+[node name="BottomAttack" type="MeshInstance2D" parent="Attacks"]
+visible = false
+modulate = Color(0, 1, 0.019607844, 1)
+position = Vector2(5.2452087e-06, 14.624998)
+scale = Vector2(22.000002, 30.749987)
+mesh = SubResource("QuadMesh_2hs0m")
+
+[node name="Area2D" type="Area2D" parent="Attacks/BottomAttack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/BottomAttack/Area2D"]
+scale = Vector2(1.0000002, 1.0000006)
+shape = SubResource("RectangleShape2D_sweqy")
+disabled = true
+
+[node name="UpAttack" type="MeshInstance2D" parent="Attacks"]
+visible = false
+modulate = Color(0, 1, 0.019607844, 1)
+position = Vector2(1.1652708e-05, -56.499996)
+scale = Vector2(22.000008, 31.000021)
+mesh = SubResource("QuadMesh_2hs0m")
+
+[node name="Area2D" type="Area2D" parent="Attacks/UpAttack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/UpAttack/Area2D"]
+scale = Vector2(1.0000002, 1.0000006)
+shape = SubResource("RectangleShape2D_sweqy")
+disabled = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_onrkg")
+}

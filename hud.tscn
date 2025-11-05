@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://cehahgiekidyu"]
+
+[ext_resource type="Script" uid="uid://bj4rufouq8efo" path="res://Labelc3.cs" id="1_37p78"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_64ctp"]
+script/source = "using Godot;
+using System;
+
+public partial class Label3 : Label
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 7.0
+offset_right = 159.0
+offset_bottom = 57.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "FPS"
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = ":"
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "999"
+script = ExtResource("1_37p78")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 52.0
+offset_right = 156.0
+offset_bottom = 102.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "DT"
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = ":"
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "0.0"
+script = SubResource("CSharpScript_64ctp")
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "ms"
