@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1c74q47h8eo3" path="res://Components/TakeDamageArea.cs" id="1_am7sh"]
 
-[node name="TakeDamageArea" type="Area2D" groups=["DamageDealt"]]
+[node name="TakeDamageArea" type="Area2D" unique_id=1932855972]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("1_am7sh")

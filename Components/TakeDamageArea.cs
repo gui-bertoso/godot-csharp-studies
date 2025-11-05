@@ -3,9 +3,6 @@ using System;
 
 public partial class TakeDamageComponent : Area2D
 {
-    [Signal]
-    public delegate void DamageDealtEventHandler();
-
     [Export]
     public int Damage = 0;
 
@@ -17,10 +14,7 @@ public partial class TakeDamageComponent : Area2D
             {
                 if (body is Entity entity)
                 {
-                    if (entity.TakeDamage(Damage))
-                    {
-                        EmitSignal("DamageDealt");
-                    }
+                    entity.TakeDamage(Damage);
                 }
             }
         }
