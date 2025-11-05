@@ -8,6 +8,7 @@ public partial class Enemy : Entity
 
 	public override void _PhysicsProcess(double delta)
 	{
+		base._PhysicsProcess(delta);
 		Vector2 velocity = Velocity;
 
 		if (!IsOnFloor())

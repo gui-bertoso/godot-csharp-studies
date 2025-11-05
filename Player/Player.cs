@@ -9,11 +9,6 @@ public partial class Player : Entity
 	private Timer AttackTimer;
 	private AnimationPlayer Animation;
 
-	private TakeDamageComponent BottomAttackArea;
-	private TakeDamageComponent UpAttackArea;
-	private TakeDamageComponent LeftAttackArea;
-	private TakeDamageComponent RightAttackArea;
-
 	private bool IsAttacking = false;
 
 	private string DirectionToAttack = "Right";
@@ -26,31 +21,16 @@ public partial class Player : Entity
 
 	public override void _Ready()
 	{
-		BottomAttackArea = GetNode<TakeDamageComponent>("Attacks/BottomAttack/Area2D2");
-		UpAttackArea = GetNode<TakeDamageComponent>("Attacks/UpAttack/Area2D2");
-		LeftAttackArea = GetNode<TakeDamageComponent>("Attacks/LeftAttack/Area2D2");
-		RightAttackArea = GetNode<TakeDamageComponent>("Attacks/RightAttack/Area2D2");
-		
+		base._Ready();
 		AttackTimer = GetNode<Timer>("AttackTimer");
 		Animation = GetNode<AnimationPlayer>("AnimationPlayer");
 		Animation.AnimationFinished += AnimationFinished;
-
-        BottomAttackArea.DamageDealt += DamageDealt;
-        UpAttackArea.DamageDealt += DamageDealt;
-        LeftAttackArea.DamageDealt += DamageDealt;
-        RightAttackArea.DamageDealt += DamageDealt;
-    }
-
-	private void DamageDealt()
-	{
-		GD.Print($"knockback: {GetKnockbackFromDirection(DirectionToAttack) * 1000}");
-		Velocity += GetKnockbackFromDirection(DirectionToAttack) * 1000;
 	}
-	
+
 	private Vector2 GetKnockbackFromDirection(string direction)
-    {
-        switch (direction)
-        {
+	{
+		switch (direction)
+		{
 			case "Up":
 				return new Vector2(0, -1);
 			case "Bottom":
@@ -61,7 +41,7 @@ public partial class Player : Entity
 				return new Vector2(1, 0);
 			default:
 				return Vector2.Zero;
-        }
+		}
 	}
 
 	private void AnimationFinished(StringName AnimationName)
@@ -69,8 +49,15 @@ public partial class Player : Entity
 		IsAttacking = false;
 	}
 
-	public override void _Process(double delta)
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+    }
+
+	
+	public override void _PhysicsProcess(double delta)
 	{
+        base._PhysicsProcess(delta);
 		if (Input.IsActionJustPressed("action_attack"))
 		{
 			if (!IsAttacking)
@@ -78,13 +65,10 @@ public partial class Player : Entity
 				IsAttacking = true;
 				Animation.Play($"Attack{DirectionToAttack}");
 				GD.Print($"Attacking{DirectionToAttack}");
+				Velocity += GetKnockbackFromDirection(DirectionToAttack) * 200;
 			}
 		}
-	}
-
-
-	public override void _PhysicsProcess(double delta)
-	{
+		
 		Vector2 velocity = Velocity;
 
 		if (!IsOnFloor())
