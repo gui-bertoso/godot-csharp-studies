@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://6xuoyx1tfoko"]
+
+[ext_resource type="Script" uid="uid://bs0ajr50a24vo" path="res://life_bars/LifeBar.cs" id="1_8k8pw"]
+[ext_resource type="Texture2D" uid="uid://e6k3v24f4qot" path="res://life_bar_tilemap.png" id="1_88wur"]
+
+[node name="LifeBar" type="Control" unique_id=740589609]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8k8pw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=321198212]
+position = Vector2(53, 54)
+scale = Vector2(3, 3)
+texture = ExtResource("1_88wur")
+hframes = 5

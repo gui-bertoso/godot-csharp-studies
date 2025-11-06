@@ -239,84 +239,89 @@ _data = {
 &"RESET": SubResource("Animation_onrkg")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1519251862]
 collision_layer = 4
 script = ExtResource("1_4flbx")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=63549140]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(-1.9073486e-06, -20.999998)
 scale = Vector2(22.750004, 40.499996)
 mesh = SubResource("QuadMesh_onrkg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1171304241]
 position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_i3pqv")
 
-[node name="Attacks" type="Node2D" parent="."]
+[node name="Attacks" type="Node2D" parent="." unique_id=1794246719]
 
-[node name="RightAttack" type="MeshInstance2D" parent="Attacks"]
+[node name="RightAttack" type="MeshInstance2D" parent="Attacks" unique_id=1345386342]
 visible = false
 modulate = Color(0, 1, 0.019607844, 1)
 position = Vector2(29.999996, -22.999989)
 scale = Vector2(35.99998, 25.500021)
 mesh = SubResource("QuadMesh_hqtel")
 
-[node name="Area2D2" parent="Attacks/RightAttack" instance=ExtResource("2_q3lat")]
+[node name="Area2D2" parent="Attacks/RightAttack" unique_id=1819067070 instance=ExtResource("2_q3lat")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/RightAttack/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/RightAttack/Area2D2" unique_id=1338662145]
 scale = Vector2(1.0000002, 1.0000007)
 shape = SubResource("RectangleShape2D_sweqy")
 disabled = true
 
-[node name="LeftAttack" type="MeshInstance2D" parent="Attacks"]
+[node name="LeftAttack" type="MeshInstance2D" parent="Attacks" unique_id=1698018210]
 visible = false
 modulate = Color(0, 1, 0.019607844, 1)
 position = Vector2(-30.000008, -22.999989)
 scale = Vector2(35.99998, 25.500021)
 mesh = SubResource("QuadMesh_hqtel")
 
-[node name="Area2D2" parent="Attacks/LeftAttack" instance=ExtResource("2_q3lat")]
+[node name="Area2D2" parent="Attacks/LeftAttack" unique_id=1921653084 instance=ExtResource("2_q3lat")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/LeftAttack/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/LeftAttack/Area2D2" unique_id=704608494]
 scale = Vector2(1.0000002, 1.0000007)
 shape = SubResource("RectangleShape2D_sweqy")
 disabled = true
 
-[node name="BottomAttack" type="MeshInstance2D" parent="Attacks"]
+[node name="BottomAttack" type="MeshInstance2D" parent="Attacks" unique_id=1412720158]
 visible = false
 modulate = Color(0, 1, 0.019607844, 1)
 position = Vector2(5.2452087e-06, 14.624998)
 scale = Vector2(22.000002, 30.749987)
 mesh = SubResource("QuadMesh_2hs0m")
 
-[node name="Area2D2" parent="Attacks/BottomAttack" instance=ExtResource("2_q3lat")]
+[node name="Area2D2" parent="Attacks/BottomAttack" unique_id=1819303998 instance=ExtResource("2_q3lat")]
 script = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/BottomAttack/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/BottomAttack/Area2D2" unique_id=97834487]
 scale = Vector2(1.0000002, 1.0000006)
 shape = SubResource("RectangleShape2D_sweqy")
 disabled = true
 
-[node name="UpAttack" type="MeshInstance2D" parent="Attacks"]
+[node name="UpAttack" type="MeshInstance2D" parent="Attacks" unique_id=1890372393]
 visible = false
 modulate = Color(0, 1, 0.019607844, 1)
 position = Vector2(1.1652708e-05, -56.499996)
 scale = Vector2(22.000008, 31.000021)
 mesh = SubResource("QuadMesh_2hs0m")
 
-[node name="Area2D2" parent="Attacks/UpAttack" instance=ExtResource("2_q3lat")]
+[node name="Area2D2" parent="Attacks/UpAttack" unique_id=2029024411 instance=ExtResource("2_q3lat")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/UpAttack/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacks/UpAttack/Area2D2" unique_id=1921865065]
 scale = Vector2(1.0000004, 1.0000007)
 shape = SubResource("RectangleShape2D_sweqy")
 disabled = true
 
-[node name="AttackTimer" type="Timer" parent="."]
+[node name="AttackTimer" type="Timer" parent="." unique_id=811575967]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=306112337]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=909263315]
 libraries = {
 &"": SubResource("AnimationLibrary_onrkg")
 }
+
+[connection signal="body_entered" from="Attacks/RightAttack/Area2D2" to="." method="TakeKnockback"]
+[connection signal="body_entered" from="Attacks/LeftAttack/Area2D2" to="." method="TakeKnockback"]
+[connection signal="body_entered" from="Attacks/BottomAttack/Area2D2" to="." method="TakeKnockback"]
+[connection signal="body_entered" from="Attacks/UpAttack/Area2D2" to="." method="TakeKnockback"]

@@ -9,10 +9,7 @@ public partial class Player : Entity
 	private Timer AttackTimer;
 	private AnimationPlayer Animation;
 
-	private TakeDamageComponent UpAtkArea;
-	private TakeDamageComponent BottomAtkArea;
-	private TakeDamageComponent LeftAtkArea;
-	private TakeDamageComponent RightAtkArea;
+
 
 	private bool IsAttacking = false;
 
@@ -27,10 +24,7 @@ public partial class Player : Entity
 	public override void _Ready()
 	{
 		base._Ready();
-		UpAtkArea = GetNode<TakeDamageComponent>("Attacks/UpAttack/Area2D2");
-		BottomAtkArea = GetNode<TakeDamageComponent>("Attacks/BottomAttack/Area2D2");
-		LeftAtkArea = GetNode<TakeDamageComponent>("Attacks/LeftAttack/Area2D2");
-		RightAtkArea = GetNode<TakeDamageComponent>("Attacks/RightAttack/Area2D2");
+
 
 		AttackTimer = GetNode<Timer>("AttackTimer");
 		Animation = GetNode<AnimationPlayer>("AnimationPlayer");
@@ -55,6 +49,23 @@ public partial class Player : Entity
 		}
 	}
 
+	private int GetKnockbackForceFromDirection(string direction)
+	{
+		switch (direction)
+		{
+			case "Up":
+				return 0;
+			case "Bottom":
+				return -1000;
+			case "Left":
+				return -1000;
+			case "Right":
+				return -1000;
+			default:
+				return 0;
+		}
+	}
+
 	private void AnimationFinished(StringName AnimationName)
 	{
 		IsAttacking = false;
@@ -76,7 +87,7 @@ public partial class Player : Entity
 
 	public void TakeKnockback(Node body)
 	{
-		Vector2 KnockbackVector = GetKnockbackFromDirection(DirectionToAttack) * -500;
+		Vector2 KnockbackVector = GetKnockbackFromDirection(DirectionToAttack) * GetKnockbackForceFromDirection(DirectionToAttack);
 		Velocity += KnockbackVector;
 	}
 

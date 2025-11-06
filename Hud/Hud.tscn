@@ -1,65 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://cehahgiekidyu"]
+[gd_scene load_steps=4 format=3 uid="uid://cehahgiekidyu"]
 
 [ext_resource type="Script" uid="uid://bj4rufouq8efo" path="res://Hud/FpsLabel.cs" id="1_37p78"]
+[ext_resource type="PackedScene" uid="uid://6xuoyx1tfoko" path="res://life_bars/life_bar.tscn" id="1_610e0"]
 [ext_resource type="Script" uid="uid://dgb4iliy37n64" path="res://Hud/DeltaLabel.cs" id="2_vwaxy"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" unique_id=1479571097]
 
-[node name="Control" type="Control" parent="."]
+[node name="LifeBar" parent="." unique_id=740589609 instance=ExtResource("1_610e0")]
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="." unique_id=998353069]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = 209.0
+offset_right = 2.0
+offset_bottom = 209.0
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=556330428]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 7.0
 offset_right = 159.0
 offset_bottom = 57.0
 
-[node name="Label" type="Label" parent="Control/HBoxContainer"]
+[node name="Label" type="Label" parent="Control/HBoxContainer" unique_id=596261227]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "FPS"
 
-[node name="Label2" type="Label" parent="Control/HBoxContainer"]
+[node name="Label2" type="Label" parent="Control/HBoxContainer" unique_id=1855538683]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = ":"
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer"]
+[node name="Label3" type="Label" parent="Control/HBoxContainer" unique_id=1380107781]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "999"
 script = ExtResource("1_37p78")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control" unique_id=847120464]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 52.0
 offset_right = 156.0
 offset_bottom = 102.0
 
-[node name="Label" type="Label" parent="Control/HBoxContainer2"]
+[node name="Label" type="Label" parent="Control/HBoxContainer2" unique_id=13399326]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "DT"
 
-[node name="Label2" type="Label" parent="Control/HBoxContainer2"]
+[node name="Label2" type="Label" parent="Control/HBoxContainer2" unique_id=409314998]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = ":"
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer2"]
+[node name="Label3" type="Label" parent="Control/HBoxContainer2" unique_id=22780576]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "0.0"
 script = ExtResource("2_vwaxy")
 
-[node name="Label4" type="Label" parent="Control/HBoxContainer2"]
+[node name="Label4" type="Label" parent="Control/HBoxContainer2" unique_id=558283164]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "ms"
