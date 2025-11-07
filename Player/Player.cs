@@ -25,6 +25,7 @@ public partial class Player : Entity
 	{
 		base._Ready();
 
+		Health = Globals.Life;
 
 		AttackTimer = GetNode<Timer>("AttackTimer");
 		Animation = GetNode<AnimationPlayer>("AnimationPlayer");
@@ -74,15 +75,8 @@ public partial class Player : Entity
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
-		if (Input.IsActionJustPressed("action_attack"))
-		{
-			if (!IsAttacking)
-			{
-				IsAttacking = true;
-				Animation.Play($"Attack{DirectionToAttack}");
-				GD.Print($"Attacking{DirectionToAttack}");
-			}
-		}
+
+		ActionBehavior();
 	}
 
 	public void TakeKnockback(Node body)
@@ -96,28 +90,17 @@ public partial class Player : Entity
 	{
 		base._PhysicsProcess(delta);
 
-		Vector2 velocity = Velocity;
+		ActionBehavior();
 
-		if (!IsOnFloor())
-		{
-			velocity += GetGravity() * (float)delta;
-		}
+		MoveBehavior();
 
-		if (Input.IsActionJustPressed("action_jump") && IsOnFloor())
-		{
-			velocity.Y = JumpVelocity;
-		}
+		UpdateAttackDirection();
 
-		float direction = Input.GetAxis("move_left", "move_right");
-		if (direction != 0)
-		{
-			velocity.X = direction * Speed;
-		}
-		else
-		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-		}
+		MoveAndSlide();
+	}
 
+	public void UpdateAttackDirection()
+	{
 		if (Input.IsActionPressed("attack_up"))
 		{
 			DirectionToAttack = "Up";
@@ -134,7 +117,40 @@ public partial class Player : Entity
 		{
 			DirectionToAttack = "Right";
 		}
-		Velocity = velocity;
-		MoveAndSlide();
+	}
+
+	public void MoveBehavior()
+	{
+		Vector2 new_velocity = Velocity;
+		float direction = Input.GetAxis("move_left", "move_right");
+		if (direction != 0)
+		{
+			new_velocity.X = direction * Speed;
+		}
+		else
+		{
+			new_velocity.X = Mathf.MoveToward(new_velocity.X, 0, Speed);
+		}
+		Velocity = new_velocity;
+	}
+
+	public void ActionBehavior()
+	{
+		Vector2 new_velocity = Velocity;
+		if (Input.IsActionJustPressed("action_jump") && IsOnFloor())
+		{
+			new_velocity.Y = JumpVelocity;
+		}
+		Velocity = new_velocity;
+
+		if (Input.IsActionJustPressed("action_attack"))
+		{
+			if (!IsAttacking)
+			{
+				IsAttacking = true;
+				Animation.Play($"Attack{DirectionToAttack}");
+				GD.Print($"Attacking{DirectionToAttack}");
+			}
+		}
 	}
 }

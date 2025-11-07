@@ -5,7 +5,7 @@ using System.ComponentModel;
 public partial class Entity : CharacterBody2D
 {
     [Export]
-    public int Health = 100;
+    public int Health = 3;
 
     public bool OnInvincibilityTime = false;
     public float InvincibilityTime = 1;
@@ -37,6 +37,19 @@ public partial class Entity : CharacterBody2D
                 OnInvincibilityTime = false;
                 InvincibilityTime = 1;
             }
+        }
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        Gravity(delta);
+    }
+
+    public void Gravity(double delta)
+    {
+        if (!IsOnFloor())
+        {
+            Velocity += GetGravity() * (float)delta;
         }
     }
 

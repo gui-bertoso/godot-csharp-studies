@@ -4,7 +4,7 @@ using System;
 public partial class TakeDamageComponent : Area2D
 {
     [Export]
-    public int Damage = 0;
+    public int Damage = 1;
 
     public override void _Process(double delta)
     {

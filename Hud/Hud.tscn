@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cehahgiekidyu"]
 
 [ext_resource type="Script" uid="uid://bj4rufouq8efo" path="res://Hud/FpsLabel.cs" id="1_37p78"]
-[ext_resource type="PackedScene" uid="uid://6xuoyx1tfoko" path="res://life_bars/life_bar.tscn" id="1_610e0"]
+[ext_resource type="PackedScene" uid="uid://6xuoyx1tfoko" path="res://LifeBar/LifeBar.tscn" id="1_610e0"]
 [ext_resource type="Script" uid="uid://dgb4iliy37n64" path="res://Hud/DeltaLabel.cs" id="2_vwaxy"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1479571097]
